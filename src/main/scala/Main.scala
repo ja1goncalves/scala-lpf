@@ -331,5 +331,22 @@ object Main extends App {
       else num_odd(list.tail)
     }
   }
-
+  //38
+//  def isPerfectSquare(n: Int): Boolean = {
+//
+//  }
+//  def perfectSquare(n: Int): Int = {
+//    if(n%2 != 0)
+//  }
+  //39
+  def convertIntForBase(n: Int, b:Int): String = {
+    if(n/b == 0) convertRest(n%b)
+    else{
+      convertIntForBase(n/b, b)+convertRest(n%b)
+   }
+  }
+  def convertRest(n: Int): String = {
+    if(n > 10)((n+55)toChar).toString
+    else n.toString
+  }
 }
