@@ -293,7 +293,26 @@ object Main extends App {
       else  bubbleSort(List(list.head) ++ bubbleSort(list.tail))
     }
   }
-
+  //36
+  def toCompact(list: List[Int]): List[List[Int]] = {
+    if(list.isEmpty) List(List())
+    else{
+      val repeat: List[Int] = compact(list.head, list, 0)
+      if(repeat.length == 1) repeat +: toCompact(list.tail)
+      else repeat +: toCompact(listAfterCases(list, repeat.head))
+    }
+  }
+  def compact(n: Int, l: List[Int], x: Int): List[Int] = {
+    if(l.head == n) compact(n, l.tail, x+1)
+    else  {
+      if(x == 0) List(n)
+      else List(n, x)
+    }
+  }
+  def listAfterCases(list: List[Int], n: Int): List[Int] = {
+    if(n == 0) list
+    else listAfterCases(list.tail, n-1)
+  }
   println(firstToupper("joao paAUlo felix"))
 
 }
