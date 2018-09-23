@@ -250,25 +250,43 @@ object Main extends App {
   }
   //32
   def palindrome(str: String): Boolean = {
-    if(str.length%2 == 0) palindromePar(str)
-    else palindromeImpar(str)
+    if(str.length%2 == 0) palindromePair(str)
+    else palindromeOdd(str)
   }
-  def palindromePar(str: String): Boolean = {
+  def palindromePair(str: String): Boolean = {
     if(str.head != str.last) false
     else if(str.length > 2){
       val _str: String = str.tail
-      palindromePar(_str.init)
+      palindromePair(_str.init)
     }
     else true
   }
-  def palindromeImpar(str: String): Boolean = {
+  def palindromeOdd(str: String): Boolean = {
    if(str.length == 1) true
    else if(str.head != str.last) false
    else {
      val _str: String = str.tail
-     palindromeImpar(_str.init)
+     palindromeOdd(_str.init)
    }
   }
+  //33
+  def isPrime(n: Int, seq: Int): Boolean = {
+    if(seq - 1 == 1 || n == 1) true
+    else {
+      if (n%(seq-1) != 0) isPrime(n, seq-1)
+      else false
+    }
+  }
+  //34
+  def sumDigits(n: Int): Int = {
+    sumString(n.toString)
+  }
+  def sumString(str: String): Int = {
+    if(str.length == 1) str.toInt
+    else (str.head.toInt - 48) + sumString(str.tail)
+  }
+  //35
+
   println(firstToupper("joao paAUlo felix"))
 
 }
