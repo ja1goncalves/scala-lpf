@@ -313,6 +313,23 @@ object Main extends App {
     if(n == 0) list
     else listAfterCases(list.tail, n-1)
   }
-  println(firstToupper("joao paAUlo felix"))
+  //37
+  def pair_odd(list: List[Int]): (List[Int], List[Int]) = {
+    (num_pair(list), num_odd(list))
+  }
+  def num_pair(list: List[Int]): List[Int] = {
+    if(list.isEmpty) List()
+    else{
+      if(list.head%2 == 0) List(list.head) ++ num_pair(list.tail)
+      else num_pair(list.tail)
+    }
+  }
+  def num_odd(list: List[Int]): List[Int] = {
+    if(list.isEmpty) List()
+    else{
+      if(list.head%2 != 0) List(list.head) ++ num_odd(list.tail)
+      else num_odd(list.tail)
+    }
+  }
 
 }
