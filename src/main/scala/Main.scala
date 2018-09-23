@@ -286,6 +286,13 @@ object Main extends App {
     else (str.head.toInt - 48) + sumString(str.tail)
   }
   //35
+  def bubbleSort(list: List[Int]): List[Int] = {
+    if(isOrdered(list)) list
+    else {
+      if(list.head > list.tail.head) bubbleSort(List(list.tail.head) ++ bubbleSort(removeSelect(list.tail.head, list)))
+      else  bubbleSort(List(list.head) ++ bubbleSort(list.tail))
+    }
+  }
 
   println(firstToupper("joao paAUlo felix"))
 
