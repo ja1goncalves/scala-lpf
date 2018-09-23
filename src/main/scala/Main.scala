@@ -262,7 +262,12 @@ object Main extends App {
     else true
   }
   def palindromeImpar(str: String): Boolean = {
-    
+   if(str.length == 1) true
+   else if(str.head != str.last) false
+   else {
+     val _str: String = str.tail
+     palindromeImpar(_str.init)
+   }
   }
   println(firstToupper("joao paAUlo felix"))
 
