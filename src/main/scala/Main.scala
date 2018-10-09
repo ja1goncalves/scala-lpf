@@ -1,5 +1,4 @@
 object Main extends App {
-
   //1
   def lassThanTwo(a: Int, b: Int):Int = {
     if(a > b) b
@@ -48,12 +47,12 @@ object Main extends App {
         if(head > next) max(head::tail)
         else max(next::tail)
     }
-//    if(list.isEmpty) -1
-//    else if(list.length == 1) list.head
-//    else{
-//      if(list.head > list.last) max(list.init)
-//      else max(list.tail)
-//    }
+    //    if(list.isEmpty) -1
+    //    else if(list.length == 1) list.head
+    //    else{
+    //      if(list.head > list.last) max(list.init)
+    //      else max(list.tail)
+    //    }
   }
   //9
   def contains(list: List[Int], element: Int): Int = {
@@ -63,11 +62,11 @@ object Main extends App {
         if(head == element) 1 + contains(tail, element)
         else contains(tail, element)
     }
-//    if(list.isEmpty) 0
-//    else{
-//      if(list.head == element) 1 + contains(list.tail, element)
-//      else contains(list.tail, element)
-//    }
+    //    if(list.isEmpty) 0
+    //    else{
+    //      if(list.head == element) 1 + contains(list.tail, element)
+    //      else contains(list.tail, element)
+    //    }
   }
   //10
   def singleOccurrence(list: List[Int], element: Int): Boolean = {
@@ -79,13 +78,13 @@ object Main extends App {
           else false
         }else singleOccurrence(tail, element)
     }
-//    if(list.isEmpty) false
-//    else {
-//      if(list.head == element){
-//        if(!belongsTo(list.tail, element)) true
-//        else false
-//      }else singleOccurrence(list.tail, element)
-//    }
+    //    if(list.isEmpty) false
+    //    else {
+    //      if(list.head == element){
+    //        if(!belongsTo(list.tail, element)) true
+    //        else false
+    //      }else singleOccurrence(list.tail, element)
+    //    }
   }
   //11
   def biggerThan(list: List[Int], num: Int): List[Int] = {
@@ -95,11 +94,11 @@ object Main extends App {
         if(head > num) head::biggerThan(tail, num)
         else biggerThan(tail, num)
     }
-//    if(list.isEmpty) List()
-//    else{
-//      if(list.head > num) list.head::biggerThan(list.tail, num)
-//      else biggerThan(list.tail, num)
-//    }
+    //    if(list.isEmpty) List()
+    //    else{
+    //      if(list.head > num) list.head::biggerThan(list.tail, num)
+    //      else biggerThan(list.tail, num)
+    //    }
   }
   //12
   def concatenate(list1: List[Int], list2: List[Int]): List[Int] = list1 ++ list2
@@ -111,11 +110,11 @@ object Main extends App {
         if(head == num) removeFistOccurrence(tail, num)
         else head::removeFistOccurrence(tail, num)
     }
-//    if(list.isEmpty) List()
-//    else{
-//      if(list.head == num) list.tail
-//      else list.head::removeFistOccurrence(list.tail, num)
-//    }
+    //    if(list.isEmpty) List()
+    //    else{
+    //      if(list.head == num) list.tail
+    //      else list.head::removeFistOccurrence(list.tail, num)
+    //    }
   }
   //14
   def removeLastElement(list: List[Int]): List[Int] = {
@@ -123,8 +122,8 @@ object Main extends App {
       case head::Nil => List()
       case head::tail => head::removeLastElement(tail)
     }
-//    if(list.length == 1) List()
-//    else list.head::removeLastElement(list.tail)
+    //    if(list.length == 1) List()
+    //    else list.head::removeLastElement(list.tail)
   }
   //15
   def removeRepeated(list: List[Int]): List[Int] = {
@@ -134,11 +133,11 @@ object Main extends App {
         if(belongsTo(tail, head)) head::removeRepeated(removeFistOccurrence(tail, head))
         else head::removeRepeated(tail)
     }
-//    if(list.isEmpty) list
-//    else{
-//      if(belongsTo(list.tail, list.head)) list.head::removeRepeated(removeFistOccurrence(list.tail, list.head))
-//      else list.head::removeRepeated(list.tail)
-//    }
+    //    if(list.isEmpty) list
+    //    else{
+    //      if(belongsTo(list.tail, list.head)) list.head::removeRepeated(removeFistOccurrence(list.tail, list.head))
+    //      else list.head::removeRepeated(list.tail)
+    //    }
   }
   //16
   def onTheList(list: List[Int], n: Int): List[Int] = {
@@ -148,12 +147,12 @@ object Main extends App {
         if(head > n) head::onTheList(tail, n)
         else onTheList(tail, n)
     }
-//    if(list.isEmpty) List()
-//    else{
-//      if(list.head > n){
-//        list.head::onTheList(list.tail, n)
-//      }else onTheList(list.tail, n)
-//    }
+    //    if(list.isEmpty) List()
+    //    else{
+    //      if(list.head > n){
+    //        list.head::onTheList(list.tail, n)
+    //      }else onTheList(list.tail, n)
+    //    }
   }
   //17
   def generateSequence(n: Int): List[Int] = {
@@ -166,8 +165,8 @@ object Main extends App {
       case head::Nil => list
       case head::tail => invert(tail)++List(head)
     }
-//    if(list.length == 1) list
-//    else invert(list.tail) ++ List(list.head)
+    //    if(list.length == 1) list
+    //    else invert(list.tail) ++ List(list.head)
   }
   //19
   type TuplaList = (List[Int], List[Int])
@@ -181,8 +180,8 @@ object Main extends App {
         if(n == 0) List(head)
         else head::getStart(tail, n-1)
     }
-//    if(list.size == n || list.isEmpty) list
-//    else getStart(list.init, n)
+    //    if(list.size == n || list.isEmpty) list
+    //    else getStart(list.init, n)
   }
 
   def getEnd(list: List[Int], n: Int): List[Int] = {
@@ -192,8 +191,8 @@ object Main extends App {
         if(n == 0) list
         else getEnd(tail, n - 1)
     }
-//    if(n == 0) list
-//    else getEnd(list.tail, n - 1)
+    //    if(n == 0) list
+    //    else getEnd(list.tail, n - 1)
   }
 
   def shareForN_2(list: List[Int], n: Int): TuplaList = {
@@ -212,12 +211,12 @@ object Main extends App {
       case (head::tail, Nil) => l1
       case _ => l1.head::l2.head::intercalate(l1.tail, l2.tail)
     }
-//    if(l1.isEmpty) l2
-//    else if (l2.isEmpty) l1
-//    else{
-//      if(l1.length >= l2.length) List(l1.head) ++ List(l2.head) ++ intercalate(l1.tail, l2.tail)
-//      else List(l2.head) ++ List(l1.head) ++ intercalate(l1.tail, l2.tail)
-//    }
+    //    if(l1.isEmpty) l2
+    //    else if (l2.isEmpty) l1
+    //    else{
+    //      if(l1.length >= l2.length) List(l1.head) ++ List(l2.head) ++ intercalate(l1.tail, l2.tail)
+    //      else List(l2.head) ++ List(l1.head) ++ intercalate(l1.tail, l2.tail)
+    //    }
   }
   //21
   def unionNotRepeat(l1: List[Int], l2: List[Int]): List[Int] = {
@@ -228,12 +227,12 @@ object Main extends App {
         if(!l1.contains(l2.head)) l1 ++ List(l2.head) ++ unionNotRepeat(l1++List(l2.head), l2.tail)
         else l1 ++ unionNotRepeat(l1, l2.tail)
     }
-//    if(l1.isEmpty) l2
-//    else if(l2.isEmpty) l1
-//    else{
-//      if(!l1.contains(l2.head)) l1 ++ List(l2.head) ++ unionNotRepeat(l1 ++ List(l2.head), l2.tail)
-//      else l1 ++ unionNotRepeat(l1, l2.tail)
-//    }
+    //    if(l1.isEmpty) l2
+    //    else if(l2.isEmpty) l1
+    //    else{
+    //      if(!l1.contains(l2.head)) l1 ++ List(l2.head) ++ unionNotRepeat(l1 ++ List(l2.head), l2.tail)
+    //      else l1 ++ unionNotRepeat(l1, l2.tail)
+    //    }
   }
   //22
   def intersection(l1: List[Int], l2: List[Int]): List[Int] = {
@@ -264,11 +263,11 @@ object Main extends App {
         if(head < n) head::insertTidy(tail, n)
         else n::head::tail
     }
-//    if(list.isEmpty) List(n)
-//    else{
-//      if(list.head < n) List(list.head) ++ insertTidy(list.tail, n)
-//      else List(n) ++ list
-//    }
+    //    if(list.isEmpty) List(n)
+    //    else{
+    //      if(list.head < n) List(list.head) ++ insertTidy(list.tail, n)
+    //      else List(n) ++ list
+    //    }
   }
   //25
   def isOrdered(l: List[Int]): Boolean = {
@@ -283,12 +282,11 @@ object Main extends App {
           else false
         }
     }
-//    val sec = l.tail
-//    if(l.head >= sec.head) false
-//    else {
-//      if(!isOrdered(l.tail)) true
-//      else false
-    }
+    //    val sec = l.tail
+    //    if(l.head >= sec.head) false
+    //    else {
+    //      if(!isOrdered(l.tail)) true
+    //      else false
   }
   //26
   def order(l: List[Int]): List[Int] = {
@@ -297,11 +295,11 @@ object Main extends App {
       case head::next::Nil => if(head < next) l else List(next, head)
       case head::next::tail => selectSmaller(l)::order(removeSelect(selectSmaller(l), l))
     }
-//    if(l.size == 1) l
-//    else{
-//      val smallerValue: Int = selectSmaller(l)
-//      List(smallerValue) ++ order(removeSelect(smallerValue, l))
-//    }
+    //    if(l.size == 1) l
+    //    else{
+    //      val smallerValue: Int = selectSmaller(l)
+    //      List(smallerValue) ++ order(removeSelect(smallerValue, l))
+    //    }
   }
 
   def removeSelect(i: Int, list: List[Int]): List[Int] = {
@@ -311,8 +309,8 @@ object Main extends App {
         if(head == i) tail
         else head::removeSelect(i, tail)
     }
-//    if(list.head == i) list.tail
-//    else List(list.head) ++ removeSelect(i, list.tail)
+    //    if(list.head == i) list.tail
+    //    else List(list.head) ++ removeSelect(i, list.tail)
   }
 
   def selectSmaller(list: List[Int]): Int = {
@@ -324,12 +322,12 @@ object Main extends App {
         if(head < next) selectSmaller(head::tail)
         else selectSmaller(next::tail)
     }
-//    if(list.size == 1) list.head
-//    else{
-//      val rest: List[Int] = list.tail
-//      if(list.head < rest.head) selectSmaller(List(list.head) ++ rest.tail)
-//      else selectSmaller(rest)
-//    }
+    //    if(list.size == 1) list.head
+    //    else{
+    //      val rest: List[Int] = list.tail
+    //      if(list.head < rest.head) selectSmaller(List(list.head) ++ rest.tail)
+    //      else selectSmaller(rest)
+    //    }
   }
   //27
   def toRotateLeft(l: List[Int], n: Int): List[Int] = {
@@ -339,8 +337,8 @@ object Main extends App {
         if(n <= 0) l
         else toRotateLeft(tail:::head::Nil, n-1)
     }
-//    if(n <= 0) l
-//    else toRotateLeft(List(l.last) ++ l.init, n - 1)
+    //    if(n <= 0) l
+    //    else toRotateLeft(List(l.last) ++ l.init, n - 1)
   }
   //28
   def getLast(list: List[Int]): List[Int] = {
@@ -365,8 +363,8 @@ object Main extends App {
       case head::tail =>
         if(n <= 0) list else toRotateRigth(getLast(list)++removeLast(list), n - 1)
     }
-//    if(n <= 0) list
-//    else toRotateRigth(List(list.head) ++ list.tail, n - 1)
+    //    if(n <= 0) list
+    //    else toRotateRigth(List(list.head) ++ list.tail, n - 1)
   }
   //29
   def strtoupper(x: String): String = {
@@ -375,8 +373,8 @@ object Main extends App {
       case _ =>
         toupper(x.head) +: strtoupper(x.tail)
     }
-//    if(x.isEmpty) x
-//    else toupper(x.head) +: strtoupper(x.tail)
+    //    if(x.isEmpty) x
+    //    else toupper(x.head) +: strtoupper(x.tail)
   }
   def toupper(x: Char): Char = {
     if (x >= 'a' && x <= 'z') (x - 32).toChar
@@ -426,12 +424,12 @@ object Main extends App {
     else true
   }
   def palindromeOdd(str: String): Boolean = {
-   if(str.length == 1) true
-   else if(str.head != str.last) false
-   else {
-     val _str: String = str.tail
-     palindromeOdd(_str.init)
-   }
+    if(str.length == 1) true
+    else if(str.head != str.last) false
+    else {
+      val _str: String = str.tail
+      palindromeOdd(_str.init)
+    }
   }
   //33
   def isPrime(n: Int, seq: Int): Boolean = {
@@ -483,8 +481,8 @@ object Main extends App {
       case head::tail =>
         if(n == 0) list else listAfterCases(tail, n-1)
     }
-//    if(n == 0) list
-//    else listAfterCases(list.tail, n-1)
+    //    if(n == 0) list
+    //    else listAfterCases(list.tail, n-1)
   }
   //37
   def pair_odd(list: List[Int]): (List[Int], List[Int]) = {
@@ -505,18 +503,18 @@ object Main extends App {
     }
   }
   //38
-//  def isPerfectSquare(n: Int): Boolean = {
-//
-//  }
-//  def perfectSquare(n: Int): Int = {
-//    if(n%2 != 0)
-//  }
+  //  def isPerfectSquare(n: Int): Boolean = {
+  //
+  //  }
+  //  def perfectSquare(n: Int): Int = {
+  //    if(n%2 != 0)
+  //  }
   //39
   def convertIntForBase(n: Int, b:Int): String = {
     if(n/b == 0) convertRest(n%b)
     else{
       convertIntForBase(n/b, b)+convertRest(n%b)
-   }
+    }
   }
   def convertRest(n: Int): String = {
     if(n > 10)((n+55)toChar).toString
@@ -524,3 +522,4 @@ object Main extends App {
   }
   //40
 }
+
