@@ -1,4 +1,4 @@
-object Main extends App {
+object List extends App {
   //1
   def lassThanTwo(a: Int, b: Int):Int = {
     if(a > b) b
@@ -522,4 +522,3 @@ object Main extends App {
   }
   //40
 }
-
