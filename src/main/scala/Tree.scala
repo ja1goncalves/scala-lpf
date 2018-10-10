@@ -1,3 +1,5 @@
+import Main.{Empty, Node, NodeBranch}
+
 object Tree extends App {
   abstract class Node{}
   case class NodeBranch(value: Int, left:Node = Empty, right: Node = Empty) extends Node{}
@@ -12,6 +14,13 @@ object Tree extends App {
         NodeBranch(f(value), map(left, f), map(right, f))
     }
   }
+
+//  def highOrderLeftRight(tree: Node, f:Int => Int, g:Int => Int): Node = {
+//    tree match{
+//      case Empty => Empty
+//      case NodeBranch(v,left,right) => NodeBranch(v ,map(left, f), map(right, g))
+//    }
+//  }
 
   def insertNode(node: Node, n: Int): Node = {
     node match {
@@ -73,6 +82,7 @@ object Tree extends App {
   def sumNodes(node: Node): Int = {
     node match {
       case Empty => 0
+      case NodeBranch(value, Empty, Empty) => value
       case NodeBranch(value, left, right) => sumNodes(left)+sumNodes(right)
     }
   }
@@ -92,7 +102,24 @@ object Tree extends App {
   def nodeCount(node: Node): Int = {
     node match {
       case Empty => 0
-      case b:NodeBranch => nodeCount(b.left)+nodeCount(b.right)
+      case b:NodeBranch => 1 + nodeCount(b.left) + nodeCount(b.right)
+    }
+  }
+
+  def nodeAtLevel(tree:Node, lvl: Int): List[Node] = {
+    tree match {
+      case NodeBranch(v,l,r) => if(level(tree,v) == lvl) List(tree)
+      else nodeAtLevel(l, lvl-1) ++ nodeAtLevel(r, lvl-1)
+      case Empty => List()
+    }
+  }
+
+  def level(node: Node, valueNode: Int): Int = {
+    node match {
+      case NodeBranch(v,l,r) => if(valueNode > v) 1 + level(r, valueNode)
+      else if(valueNode < v) 1 + level(l, valueNode)
+      else 1
+      case Empty => 0
     }
   }
 
