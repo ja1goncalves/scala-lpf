@@ -117,25 +117,20 @@ object Main extends App {
       if(n == 0) num
       else rest + otherFriends(n)
     }
-    return otherFriends(x) == otherFriends(y)
+    otherFriends(x) == otherFriends(y)
   }
 
   //Questão 2)
-  def subList(list:List[Int], first: Int, last: Int): List[Int] = {
-    list match {
-      case head::tail => if(first == head) List(head):::completeList(tail, last)
-      else subList(tail, first, last)
-      case Nil => Nil
+  def sub_list(list: List[Int], i: Int, f: Int): List[Int] = {
+    def count(list: List[Int], i: Int, f: Int, c: Int): List[Int] = {
+      list match {
+        case Nil => Nil
+        case head::tail =>
+          if(c >= i && c <= f) head::count(tail, i, f, c+1)
+          else count(tail, i, f, c+1)
+      }
     }
+    count(list, i, f, 0)
   }
-
-  def completeList(list:List[Int], lastValue: Int): List[Int] = {
-    list match {
-      case head::tail => if(head != lastValue) List(head):::completeList(tail, lastValue)
-      else List(head)
-      case Nil => Nil
-    }
-  }
-
 
 }
