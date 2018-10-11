@@ -140,6 +140,22 @@ object Tree extends App {
   //QuestaoPrimos
   //ArvoreDecisao
   //ArvoreHuffman
+  case class NodeHuffman(v: Char = '*', l: Node = Empty, r: Node = Empty) extends Node {}
+
+  def decode(str: String, node: NodeHuffman): String = {
+    def aux_decode(str: String, original_node: NodeHuffman, node: NodeHuffman): String = {
+      str match {
+        case "" =>
+          if(node.v != '*') node.v + ""
+          else ""
+        case _ =>
+          if(node.v != '*') node.v + aux_decode(str, original_node, original_node)
+          else if(str.head == '0') aux_decode(str.tail, original_node, node.l.asInstanceOf[NodeHuffman])
+          else aux_decode(str.tail, original_node, node.r.asInstanceOf[NodeHuffman])
+      }
+    }
+    aux_decode(str, node, node)
+  }
   //ArvoreHeapSort
 
   //Convert
