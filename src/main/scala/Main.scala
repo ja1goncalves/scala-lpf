@@ -103,22 +103,21 @@ object Main extends App {
   //Prova 2018.1
 
   //Questão 1)
-  def friednlyNumbers(x:Int, y:Int):Boolean = {
-    if(digitsSum(x) == digitsSum(y))
-      true
-    else
-      false
-  }
+  def numberFriends(x: Int, y: Int): Boolean = {
+    def friends(num: String): Int = {
+      num match {
+        case "" => 0
+        case _ => num.head.asInstanceOf[Int] + friends(num.tail) - 48
+      }
+    }
 
-  def digitsSum(n:Int): Int = {
-    divNum(n)
-  }
-
-  def divNum(num:Int):Int = {
-    if(num < 10)
-      num
-    else
-      num%10 + divNum(num/10)
+    def otherFriends(num: Int): Int = {
+      val n: Int = num/10
+      val rest: Int = num%10
+      if(n == 0) num
+      else rest + otherFriends(n)
+    }
+    return otherFriends(x) == otherFriends(y)
   }
 
   //Questão 2)

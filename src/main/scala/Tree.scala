@@ -1,5 +1,3 @@
-import Main.{Empty, Node, NodeBranch}
-
 object Tree extends App {
   abstract class Node{}
   case class NodeBranch(value: Int, left:Node = Empty, right: Node = Empty) extends Node{}
