@@ -102,7 +102,6 @@ object Main extends App {
   //*********************************************************************************************
   //Prova 2018.1
 
-  //Questão 1)
   def numberFriends(x: Int, y: Int): Boolean = {
     def friends(num: String): Int = {
       num match {
@@ -120,7 +119,6 @@ object Main extends App {
     otherFriends(x) == otherFriends(y)
   }
 
-  //Questão 2)
   def sub_list(list: List[Int], i: Int, f: Int): List[Int] = {
     def count(list: List[Int], i: Int, f: Int, c: Int): List[Int] = {
       list match {
@@ -133,4 +131,17 @@ object Main extends App {
     count(list, i, f, 0)
   }
 
+  def almostDecreasing(list: List[Int]): Boolean = {
+    def almostDecreasingCount(list: List[Int], count: Int): Boolean = {
+      list match {
+        case Nil => if(count == 1) true else false
+        case head::Nil => if(count == 1) true else false
+        case head::next::Nil => if(count == 1) true else false
+        case head::next::tail =>
+          if(head > next) almostDecreasingCount(next::tail, count)
+          else almostDecreasingCount(next::tail, count+1)
+      }
+    }
+    almostDecreasingCount(list, 0)
+  }
 }
