@@ -1,4 +1,12 @@
 object List extends App {
+
+  def map(list: List[Int], f: Int => Int): List[Int] = {
+    list match {
+      case head::tail => f(head) +: map1(tail, f)
+      case Nil => Nil
+    }
+  }
+
   //1
   def lassThanTwo(a: Int, b: Int):Int = {
     if(a > b) b
